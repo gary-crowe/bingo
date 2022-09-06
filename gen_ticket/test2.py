@@ -1,12 +1,8 @@
-#HOUSIE TICKET GENERATOR!!
+#Bingo ticket generator - Needs work to fix exactly 10 entries per column
+# Will do for now for testing
 
 from tabulate import tabulate
 import random
-
-def deco():
-    for i in range(0,75):
-        print("-",end='')
-   
 
 def ticket():
     
@@ -91,20 +87,12 @@ def ticket():
             else:
                 print(x[j][i], end='\t|')
         print()
-    
+    print(x) 
     
 #Input the number of tickets
-n=int(input("Enter the number of tickets you want: "))
-print()
+#n=int(input("Enter the number of tickets you want: "))
+n=1   # This will be passed
 
 #Printing Tickets for user
-for yellow in range(0,n):
-    deco()
-    print()
-    print('\t\t\t\t',yellow+1)
-    deco()
-    print()
+for counter in range(0,n):
     ticket()
-    deco()
-    print()
-    print()
