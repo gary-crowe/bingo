@@ -87,7 +87,6 @@ def ticket():
             else:
                 print(x[j][i], end='\t|')
         print()
-    print(x) 
     
 #Input the number of tickets
 #n=int(input("Enter the number of tickets you want: "))
