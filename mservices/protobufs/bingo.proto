@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+enum BookCategory {
+    MYSTERY = 0;
+    SCIENCE_FICTION = 1;
+    SELF_HELP = 2;
+}
+
+message TicketRequest {
+    string user_id = 1;
+    BookCategory category = 2;
+    int32 max_cards = 3;
+}
+
+message TicketGeneration {
+    string title = 1;
+}
+
+message TicketResponse {
+    repeated TicketGeneration generatedtickets = 1;
+}
+
+service Generations {
+    rpc Generate (TicketRequest) returns (TicketResponse);
+}

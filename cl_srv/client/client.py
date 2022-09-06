@@ -19,8 +19,5 @@ ticket_client = TicketsStub(ticket_channel)
 @app.route("/")
 def render_homepage():
     ticket_request = TicketRequest( user_id="Gary", no_of_tickets=1)
-    ticket_response = ticket_client.Ticket( ticket_request)
-    return render_template(
-        "homepage.html",
-        generatedticket=ticket_response.Ticket,
-    )
+    ticket_response = ticket_client.Ticket(ticket_request)
+    return render_template( "homepage.html", generatedticket=ticket_response.Ticket,)
