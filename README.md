@@ -16,6 +16,7 @@ Automated number caller page: https://www.online-stopwatch.com/random-number-gen
 and this one: https://partystuff.in/tambola-board
 
 Here's a solution but in js I think: ./tambola-tickets
+Useful article on microservices design: https://realpython.com/python-microservices-grpc/
 
 # Bingo card generation
 ## Constraints
