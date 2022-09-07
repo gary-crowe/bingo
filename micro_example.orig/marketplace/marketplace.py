@@ -19,7 +19,7 @@ recommendations_client = RecommendationsStub(recommendations_channel)
 @app.route("/")
 def render_homepage():
     recommendations_request = RecommendationRequest(
-        user_id=1, category=BookCategory.MYSTERY, max_results=6
+        user_id=1, category=BookCategory.MYSTERY, max_results=3
     )
     recommendations_response = recommendations_client.Recommend(
         recommendations_request

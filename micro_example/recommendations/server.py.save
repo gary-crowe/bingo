@@ -27,14 +27,12 @@ def gen():
     return (ticket.T)
 
 books_by_category = {
-    BookCategory.MYSTERY: [
         BookRecommendation(id=1, title=str(gen())),
         BookRecommendation(id=2, title=str(gen())),
         BookRecommendation(id=3, title=str(gen())), 
         BookRecommendation(id=4, title=str(gen())), 
         BookRecommendation(id=5, title=str(gen())), 
         BookRecommendation(id=6, title=str(gen())), 
-    ],
 }
 
 class RecommendationService(
@@ -45,7 +43,7 @@ class RecommendationService(
             context.abort(grpc.StatusCode.NOT_FOUND, "Category not found")
 
 #       books_for_category = books_by_category[request.category]
-        books_for_category = books_by_category[BookCategory.MYSTERY]
+        books_for_category = books_by_category
         num_results = min(request.max_results, len(books_for_category))
         books_to_recommend = random.sample(
             books_for_category, num_results

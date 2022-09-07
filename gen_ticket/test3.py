@@ -9,6 +9,5 @@ def gene():
         np.random.shuffle(nums)
         ticket[i,:] *= np.sort(nums[:3])
     print(tabulate.tabulate(ticket.T))
-    print(tabulate(ticket.T))
     
 gene()

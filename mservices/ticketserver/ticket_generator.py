@@ -30,7 +30,6 @@ class GenerateationService( bingo_pb2_grpc.GenerationsServicer):
     def Generate(self, request, context):
 
         board=TicketGeneration(card1=gen(),card2=gen())
-        print(board)
         return TicketResponse(generatedtickets=board)
 
 def serve():
