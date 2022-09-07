@@ -9,6 +9,7 @@ from recommendations_pb2_grpc import RecommendationsStub
 
 import json
 # json.loads(s)
+# Importing the string looks like this
 # [[0, 11, 22, 0, 0, 51, 62, 0, 85], [3, 0, 0, 36, 48, 54, 64, 0, 0], [0, 18, 30, 39, 0, 0, 67, 0, 87]]
 
 app = Flask(__name__)
@@ -28,10 +29,10 @@ def render_homepage():
     recommendations_response = recommendations_client.Recommend(
         recommendations_request
     )
-
+    # This loop appears to work. You are here! Add to long list and send to html print
     tickets=recommendations_response.recommendations
     for loop in tickets:
-        print(json.loads(loop))
+        print(json.loads(loop.title))
 
     return render_template(
         "homepage.html",
