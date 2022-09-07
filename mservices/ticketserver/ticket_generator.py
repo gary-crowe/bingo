@@ -6,7 +6,6 @@ import grpc
 import tabulate
 
 from bingo_pb2 import (
-    BookCategory,
     TicketGeneration,
     TicketResponse,
 )
@@ -22,15 +21,16 @@ def gen():
         nums =np.arange(1+10*i,11+10*i)
         np.random.shuffle(nums)
         ticket[i,:] *= np.sort(nums[:3])
-#    print(tabulate.tabulate(ticket.T))
-    return (tabulate.tabulate(ticket.T))
+    print(ticket.T)
+    return("This is the string")
+#   return (ticket.T)
 
 # 
 class GenerateationService( bingo_pb2_grpc.GenerationsServicer):
     def Generate(self, request, context):
 
-        board = gen()  # Generate ticket need to process number here
-
+        board=TicketGeneration(card1=gen(),card2=gen())
+        print(board)
         return TicketResponse(generatedtickets=board)
 
 def serve():
