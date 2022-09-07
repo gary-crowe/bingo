@@ -24,25 +24,23 @@ def gen():
         nums =np.arange(1+10*i,11+10*i)
         np.random.shuffle(nums)
         ticket[i,:] *= np.sort(nums[:3])
-    return (ticket.T)
-
-books_by_category = {
-    BookCategory.MYSTERY: [
-        BookRecommendation(id=1, title=str(gen())),
-        BookRecommendation(id=2, title=str(gen())),
-        BookRecommendation(id=3, title=str(gen())), 
-        BookRecommendation(id=4, title=str(gen())), 
-        BookRecommendation(id=5, title=str(gen())), 
-        BookRecommendation(id=6, title=str(gen())), 
-    ],
-}
+    return(np.array2string(ticket.T, separator=','))
+    #return(tabulate.tabulate(ticket.T))
+    #return (ticket.T)
 
 class RecommendationService(
-    recommendations_pb2_grpc.RecommendationsServicer
-):
+    recommendations_pb2_grpc.RecommendationsServicer):
     def Recommend(self, request, context):
-        if request.category not in books_by_category:
-            context.abort(grpc.StatusCode.NOT_FOUND, "Category not found")
+        books_by_category = {
+            BookCategory.MYSTERY: [
+                BookRecommendation(id=1, title=str(gen())),
+                BookRecommendation(id=2, title=str(gen())),
+                BookRecommendation(id=3, title=str(gen())), 
+                BookRecommendation(id=4, title=str(gen())), 
+                BookRecommendation(id=5, title=str(gen())), 
+                BookRecommendation(id=6, title=str(gen())), 
+            ],
+        }
 
 #       books_for_category = books_by_category[request.category]
         books_for_category = books_by_category[BookCategory.MYSTERY]
