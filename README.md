@@ -7,7 +7,7 @@ Initial stab at a bingo program that I started in order to:
 4. Learn about service mesh
 5. Learn about Tekton/ArgoCD for CI/CD development under Openshift
 
-The idea is to have multiple micro-services running to form the bongo application.
+The idea is to have multiple micro-services running to form the bingo application.
 There will be a central pod doing the bingo calling, a ticket generator pod for tickets and multiple client pods as the players.  In addition, a mysql pod backend will contain the stats (winning tickets, players name, number of balls called etc.)
 
 Once developed I want to incorporate service mesh to run across multiple clouds
@@ -21,13 +21,13 @@ My initial thoughts after starting this project are:
 3. Im not a programmer lol.
 
 # Bingo card generation
-## Constraints
+The bingo card generation is tricky. we will be using a standard Englich bingo card (for now) that has the following constraints:
 
 - Each ticket has 3 rows with 9 cells each.
 - Each ticket contains 15 numbers.
 - Each row must have 5 numbers.
 - Each page should have 6 tickets that account for all 90 numbers.
-- When we talk about numbers in every ticket, they contain all unique numbers.
+- Each number should only appear once per 6 tickets.
 - For each column in ticket, there can be a max of 3 numbers.
 - No ticket should have empty column / columns
 - The numbers in every column must be sorted ascending.
@@ -49,4 +49,5 @@ Automated number caller page: https://www.online-stopwatch.com/random-number-gen
 and this one: https://partystuff.in/tambola-board
 
 Here's a solution but in js I think: ```./tambola-tickets```
-
+###
+G.Crowe, Apache2 License.  Knock yourself out!
