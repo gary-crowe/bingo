@@ -1,7 +1,12 @@
 FROM python
+LABEL description="Bingo Ticket Generator" \
+      version="0.1" \
+      creationDate="09-09-2022"
+
+USER 1001
 
 RUN mkdir /service
-RUN chgrp -R 0 /service && \
+RUN chgrp -R 1001 /service && \
     chmod -R g=u /service
 
 COPY protobufs/ /service/protobufs/
