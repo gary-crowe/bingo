@@ -1,6 +1,9 @@
 FROM python
 
 RUN mkdir /service
+RUN chgrp -R 0 /service && \
+    chmod -R g=u /service
+
 COPY protobufs/ /service/protobufs/
 COPY generator/ /service/generator/
 WORKDIR /service/generator
