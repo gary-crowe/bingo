@@ -1,3 +1,6 @@
+# These are the "oc" commands to launch the application.
+# Use the template in preference
+
 oc new-app https://github.com/gary-crowe/bingo \
 	--context-dir=working_sol/generator \
 	--name bingo-generator

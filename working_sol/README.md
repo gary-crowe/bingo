@@ -22,4 +22,5 @@ This routine needs to be changed to generate 6, English style bing tickets.
 2. Not sure a flattened array is the right idea for the ticket storage.
 How will I check and mark off the tickets?
 
+3. Instructions for firing up mysql as a container.
 
