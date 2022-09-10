@@ -1,6 +1,15 @@
 oc new-app https://github.com/gary-crowe/bingo \
-	--context-dir=working_sol/client \
-	--name bingo \
-oc new-app https://github.com/gary-crowe/bingo \
 	--context-dir=working_sol/generator \
-	--name generator \
+	--name bingo-generator
+
+oc new-app https://github.com/gary-crowe/bingo \
+	--context-dir=working_sol/client \
+	--env RECOMMENDATIONS_HOST=generator \
+	--name bingo
+
+oc new-app mysql:8.0~https://github.com/gary-crowe/bingo \
+        --name bingo-mysql \
+        --context-dir=working_sol/ \
+        --env MYSQL_DATABASE=games \
+        --env MYSQL_USER=gary \
+        --env MYSQL_PASSWORD=PassW0rd
