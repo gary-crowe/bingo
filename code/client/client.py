@@ -8,7 +8,11 @@ from generated_pb2 import BingoCategory, TicketRequest
 from generated_pb2_grpc import GeneratedStub
 
 import json
+
+#define our variables
 cards = []
+player_name = ""        # Populate with player name
+ticket_type = "UKBINGO" # Populate with type of card required
 
 app = Flask(__name__)
 
@@ -18,6 +22,7 @@ generated_channel = grpc.insecure_channel(
 )
 generated_client = GeneratedStub(generated_channel)
 
+# Define our functions here
 def flatten(l):
     return [item for sublist in l for item in sublist]
 
