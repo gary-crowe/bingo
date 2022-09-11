@@ -12,7 +12,7 @@ cards = []
 
 app = Flask(__name__)
 
-generated_host = os.getenv("RECOMMENDATIONS_HOST", "localhost")
+generated_host = os.getenv("GENERATOR_HOST", "localhost")
 generated_channel = grpc.insecure_channel(
     f"{generated_host}:50051"
 )

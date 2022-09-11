@@ -7,7 +7,7 @@ oc new-app https://github.com/gary-crowe/bingo \
 
 oc new-app https://github.com/gary-crowe/bingo \
 	--context-dir=test_sol/client \
-	--env RECOMMENDATIONS_HOST=generator \
+	--env GENERATOR_HOST=bingo-generator \
 	--name bingo
 
 oc new-app mysql:8.0~https://github.com/gary-crowe/bingo \
