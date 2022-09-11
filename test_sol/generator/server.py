@@ -40,7 +40,7 @@ class TicketsationService(generated_pb2_grpc.GeneratedServicer):
                 BingoTicket(id=5, title=str(genUK())), 
                 BingoTicket(id=6, title=str(genUK())), 
             ],
-            BingoCategory.USBingo: [
+            BingoCategory.USBINGO: [
                 BingoTicket(id=1, title=str(genUK())),
                 BingoTicket(id=2, title=str(genUK())),
                 BingoTicket(id=3, title=str(genUK())), 
