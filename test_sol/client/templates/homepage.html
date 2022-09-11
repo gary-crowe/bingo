@@ -1,0 +1,55 @@
+<!-- homepage.html -->
+<!doctype html>
+{% macro testmacro(start,end,board) -%}
+{% for i in range(start,end) %}
+  {% if board[i] == 0 %}
+  <td>&nbsp;&nbsp;</td>
+  {% else %}
+  <td>{{ myboard[i] }}</td>
+  {% endif %}
+{% endfor %}
+{%- endmacro %}
+
+<html lang="en">
+<head>
+    <title>Garys Bingo Game</title>
+</head>
+<body>
+    <h2>Your bingo tickets:</h2>
+    <h4>Card 1</h4>
+       <table border="1" style="width:60%;text-align:center;background-color:gold;">
+       <tr>{{ testmacro(0,9,myboard) }}</tr>
+       <tr>{{ testmacro(9,18,myboard) }}</tr>
+       <tr>{{ testmacro(18,27,myboard) }}</tr>
+      </table>
+    <h4>Card 2</h4>
+       <table border="1" style="width:60%;text-align:center;background-color:green;">
+       <tr>{{ testmacro(27,36,myboard) }}</tr>
+       <tr>{{ testmacro(36,45,myboard) }}</tr>
+       <tr>{{ testmacro(45,54,myboard) }}</tr>
+      </table>
+    <h4>Card 3</h4>
+       <table border="1" style="width:60%;text-align:center;background-color:cyan;">
+       <tr>{{ testmacro(54,63,myboard) }}</tr>
+       <tr>{{ testmacro(63,72,myboard) }}</tr>
+       <tr>{{ testmacro(72,81,myboard) }}</tr>
+      </table>
+    <h4>Card 4</h4>
+       <table border="1" style="width:60%;text-align:center;background-color:red;">
+       <tr>{{ testmacro(81,90,myboard) }}</tr>
+       <tr>{{ testmacro(90,99,myboard) }}</tr>
+       <tr>{{ testmacro(99,108,myboard) }}</tr>
+      </table>
+    <h4>Card 5</h4>
+       <table border="1" style="width:60%;text-align:center;background-color:yellow;">
+       <tr>{{ testmacro(108,117,myboard) }}</tr>
+       <tr>{{ testmacro(117,126,myboard) }}</tr>
+       <tr>{{ testmacro(126,135,myboard) }}</tr>
+      </table>
+    <h4>Card 6</h4>
+       <table border="1" style="width:60%;text-align:center;background-color:orange;">
+       <tr>{{ testmacro(135,144,myboard) }}</tr>
+       <tr>{{ testmacro(144,153,myboard) }}</tr>
+       <tr>{{ testmacro(153,162,myboard) }}</tr>
+      </table>
+</body>

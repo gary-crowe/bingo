@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+enum BingoCategory {
+    UKBINGO = 0;
+    USBINGO = 1;
+    IMAGES = 2;
+    WORDS = 3;
+}
+
+message TicketRequest {
+    int32 user_id = 1;
+    BingoCategory category = 2;
+    int32 max_results = 3;
+}
+
+message BingoTicket {
+    int32 id = 1;
+    string title = 2;
+}
+
+message BingoTicketResponse {
+    repeated BingoTicket generated = 1;
+}
+
+service Generated {
+    rpc Tickets (TicketRequest) returns (BingoTicketResponse);
+}
