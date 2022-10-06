@@ -48,6 +48,6 @@ Some theory here using conjure programming language: https://journal.artfuldev.c
 Automated number caller page: https://www.online-stopwatch.com/random-number-generators/online-bingo-caller/
 and this one: https://partystuff.in/tambola-board
 
-Here's a solution but in js I think: ```./tambola-tickets```
+Here's a solution but in js I think: ```https://github.com/praveenpuglia/tambola-tickets.git```
 ###
 G.Crowe, Apache2 License.  Knock yourself out!
