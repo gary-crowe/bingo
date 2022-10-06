@@ -90,7 +90,7 @@ def ticket():
     
 #Input the number of tickets
 #n=int(input("Enter the number of tickets you want: "))
-n=1   # This will be passed
+n=2   # This will be passed
 
 #Printing Tickets for user
 for counter in range(0,n):

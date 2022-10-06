@@ -27,13 +27,13 @@ for i in range(len(columns)):
 cols = []
 i = 0
 # initializing m = 1 and n = 11 as values start with 1 and ends at 10 for 1st column. And then incrementing by 10 for every new column.
-m,n = 1,11
+m,n = 1,10
 for i in range(9):
     cols.append(random.sample(range(m,n),3))
     m += 10
     n += 10
 
-# print(rows)
+print(cols)
 
 # ----- Creating a transpose of cols so that the first element of every sub-list of cols now becomes a  single row -----
 values = [[cols[j][i] for j in range(len(cols))] for i in range(len(cols[i]))]

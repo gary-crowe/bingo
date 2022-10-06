@@ -21,7 +21,7 @@ My initial thoughts after starting this project are:
 3. Im not a programmer lol.
 
 # Bingo card generation
-The bingo card generation is tricky. we will be using a standard Englich bingo card (for now) that has the following constraints:
+The bingo card generation is tricky. we will be using a standard English bingo card (for now) that has the following constraints:
 
 - Each ticket has 3 rows with 9 cells each.
 - Each ticket contains 15 numbers.
@@ -49,5 +49,7 @@ Automated number caller page: https://www.online-stopwatch.com/random-number-gen
 and this one: https://partystuff.in/tambola-board
 
 Here's a solution but in js I think: ```./tambola-tickets```
+This look sinteresting: https://github.com/ishitajain21/Housie.git
+There is a pre-defined python library for housie: https://pypi.org/project/housie/
 ###
 G.Crowe, Apache2 License.  Knock yourself out!
