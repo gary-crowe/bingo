@@ -64,16 +64,8 @@ def generate_cards(seed_value):
             assert iter < 50
     return result
 
-start_time = int(time.time())
+seed = int(time.time())
 
-#for page in range(1):
-#    for bank in [0]:
-#        foo = (1000 + (page * 2) + bank)
-#        seed = [start_time, foo]
-#        cards = generate.generate_cards(seed)
-#        print(cards)
-
-seed = start_time
 cards = generate_cards(seed)
 print(cards)
 
