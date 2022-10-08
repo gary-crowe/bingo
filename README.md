@@ -38,6 +38,9 @@ Bingo card generator (pay): https://myfreebingocards.com/bingo-card-generator/ed
 https://github.com/delins/bingo : generates pdf 5x5 bingo card. Might be useful to print out cards. 
 https://github.com/digitalsleuth/bingo-card-generator: Similar, looks to have a gui frontend.
 
+API interface? : https://partystuff.in/tickets-api
+Working JS with code: https://codepen.io/rahtiel/pen/jOEZmjP
+
 Some theory here using conjure programming language: https://journal.artfuldev.com/generating-tickets-for-tambola-or-bingo-or-housie-or-whatever-58df409205ae
 
 Automated number caller page: https://www.online-stopwatch.com/random-number-generators/online-bingo-caller/
@@ -46,5 +49,6 @@ and this one: https://partystuff.in/tambola-board
 Here's a solution but in js I think: ```https://praveenpuglia.com/tambola-tickets```
 This look sinteresting: https://github.com/ishitajain21/Housie.git
 There is a pre-defined python library for housie: https://pypi.org/project/housie/
+
 ###
 G.Crowe, Apache2 License.  Knock yourself out!
