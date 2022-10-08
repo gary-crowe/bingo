@@ -24,4 +24,4 @@ This contains the images used for Image bingo.
 | 77.png  | ![77_png](77.png) | 78.png | ![78_png](78.png) | 79.png | ![79_png](79.png) | 80.png | ![80_png](80.png) |
 | 81.png  | ![81_png](81.png) | 82.png | ![82_png](82.png) | 83.png | ![83_png](83.png) | 84.png | ![84_png](84.png) |
 | 85.png  | ![85_png](85.png) | 86.png | ![86_png](86.png) | 87.png | ![87_png](87.png) | 88.png | ![88_png](88.png) |
-| 89.png  | ![89_png](89.png) | 90.png | ![90_png](90.png) | | | | |
+| 89.png  | ![89_png](89.png) | 90.png | ![90_png](90.png) |  | | | |
