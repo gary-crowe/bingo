@@ -15,13 +15,8 @@ Once developed I want to incorporate service mesh to run across multiple clouds
 The communication messaging between nodes will use Googles RPC (see: https://grpc.io/docs/what-is-grpc/introduction/)
 and is based on this as a starting point: https://realpython.com/python-microservices-grpc/
 
-My initial thoughts after starting this project are:
-1. My python skills are non existent :-(
-2. Designing for micro-services and communication is not easy.
-3. Im not a programmer lol.
-
 # Bingo card generation
-The bingo card generation is tricky. we will be using a standard Englich bingo card (for now) that has the following constraints:
+The bingo card generation is tricky. we will be using a standard English bingo card (for now) that has the following constraints:
 
 - Each ticket has 3 rows with 9 cells each.
 - Each ticket contains 15 numbers.
@@ -36,7 +31,7 @@ A typical card looks like this:
 
 ![Home System](img/card.jpg)
 
-The challenge is to get that working first.
+the gen_ticket/final.py code achieves the bingo ticket as an NP array.
 ### Links for bingo card generation
 
 Bingo card generator (pay): https://myfreebingocards.com/bingo-card-generator/edit/y6gbar
@@ -51,6 +46,9 @@ Some theory here using conjure programming language: https://journal.artfuldev.c
 Automated number caller page: https://www.online-stopwatch.com/random-number-generators/online-bingo-caller/
 and this one: https://partystuff.in/tambola-board
 
-Here's a solution but in js I think: ```https://github.com/praveenpuglia/tambola-tickets.git```
+Here's a solution but in js I think: ```https://praveenpuglia.com/tambola-tickets```
+This look sinteresting: https://github.com/ishitajain21/Housie.git
+There is a pre-defined python library for housie: https://pypi.org/project/housie/
+
 ###
 G.Crowe, Apache2 License.  Knock yourself out!
