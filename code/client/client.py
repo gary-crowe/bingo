@@ -8,9 +8,11 @@ from generated_pb2 import BingoCategory, TicketRequest
 from generated_pb2_grpc import GeneratedStub
 
 import json
+import itertools
 
 #define our variables
 cards = []
+
 player_name = ""        # Populate with player name
 ticket_type = "UKBINGO" # Populate with type of card required
 
@@ -42,7 +44,6 @@ def render_homepage():
         cards.append(json.loads(loop.title))
 
     # Flatten to list of all numbers
-    # https://stackoverflow.com/questions/952914/how-do-i-make-a-flat-list-out-of-a-list-of-lists
     board=sum(flatten(cards), [])
 
-    return render_template( "homepage.html", myboard=board,)
+    return render_template( "homepage.html", myboard=list(itertools.chain.from_iterable(board)))

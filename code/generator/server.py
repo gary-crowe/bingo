@@ -106,11 +106,7 @@ class TicketsationService(generated_pb2_grpc.GeneratedServicer):
                 BingoTicket(id=1, title=str(generate_cards(int(time.time())))),
             ],
             BingoCategory.USBINGO: [
-                BingoTicket(id=1, title=str(genUK())),
-                BingoTicket(id=2, title=str(genUK())),
-                BingoTicket(id=3, title=str(genUK())), 
-                BingoTicket(id=4, title=str(genUK())), 
-                BingoTicket(id=5, title=str(genUK())), 
+                BingoTicket(id=1, title=str(generate_cards(int(time.time())))),
             ],
         }
 
