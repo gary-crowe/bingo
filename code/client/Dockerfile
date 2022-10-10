@@ -2,8 +2,7 @@ FROM registry.fedoraproject.org/f33/python3
 
 LABEL description="Bingo Ticket Client" \
       version="0.2" \
-      creationDate="09-10-2022" \
-      updateonDate="08-10-2022"
+      creationDate="11-09-2022"
 
 USER 0
 COPY . ./
