@@ -5,7 +5,7 @@
   {% if board[i] == 0 %}
   <td>&nbsp;&nbsp;</td>
   {% else %}
-  <td>{{ myboard[i] }}</td>
+  <td>{{ board[i] }}</td>
   {% endif %}
 {% endfor %}
 {%- endmacro %}
@@ -16,37 +16,31 @@
 </head>
 <body>
     <h2>Your bingo tickets:</h2>
-    <h4>Card 1</h4>
        <table border="1" style="width:60%;text-align:center;background-color:gold;">
        <tr>{{ testmacro(0,myboard) }}</tr>
        <tr>{{ testmacro(9,myboard) }}</tr>
        <tr>{{ testmacro(18,myboard) }}</tr>
       </table>
-    <h4>Card 2</h4>
        <table border="1" style="width:60%;text-align:center;background-color:green;">
        <tr>{{ testmacro(27,myboard) }}</tr>
        <tr>{{ testmacro(36,myboard) }}</tr>
        <tr>{{ testmacro(45,myboard) }}</tr>
       </table>
-    <h4>Card 3</h4>
        <table border="1" style="width:60%;text-align:center;background-color:cyan;">
        <tr>{{ testmacro(54,myboard) }}</tr>
        <tr>{{ testmacro(63,myboard) }}</tr>
        <tr>{{ testmacro(72,myboard) }}</tr>
       </table>
-    <h4>Card 4</h4>
        <table border="1" style="width:60%;text-align:center;background-color:red;">
        <tr>{{ testmacro(81,myboard) }}</tr>
        <tr>{{ testmacro(90,myboard) }}</tr>
        <tr>{{ testmacro(99,myboard) }}</tr>
       </table>
-    <h4>Card 5</h4>
        <table border="1" style="width:60%;text-align:center;background-color:yellow;">
        <tr>{{ testmacro(108,myboard) }}</tr>
        <tr>{{ testmacro(117,myboard) }}</tr>
        <tr>{{ testmacro(126,myboard) }}</tr>
       </table>
-    <h4>Card 6</h4>
        <table border="1" style="width:60%;text-align:center;background-color:orange;">
        <tr>{{ testmacro(135,myboard) }}</tr>
        <tr>{{ testmacro(144,myboard) }}</tr>

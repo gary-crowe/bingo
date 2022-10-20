@@ -1,5 +1,4 @@
 # marketplace/marketplace.py
-import os
 
 from flask import Flask, render_template
 import grpc
@@ -7,13 +6,14 @@ import grpc
 from generated_pb2 import BingoCategory, TicketRequest
 from generated_pb2_grpc import GeneratedStub
 
+import os
 import json
 import itertools
 
 #define our variables
 cards = []
 
-player_name = ""        # Populate with player name
+player_name = "Gary"    # Populate with player name
 ticket_type = "UKBINGO" # Populate with type of card required
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def flatten(l):
 def render_homepage():
     # Request new bingo board
     generated_request = TicketRequest(
-        user_id=1, category=BingoCategory.UKBINGO, max_results=6
+        user_id=1, category=BingoCategory.UKBINGO
     )
     # Read response
     generated_response = generated_client.Tickets(
@@ -47,3 +47,21 @@ def render_homepage():
     board=sum(flatten(cards), [])
 
     return render_template( "homepage.html", myboard=list(itertools.chain.from_iterable(board)))
+
+@app.route("/usa")
+def render_usabingo():
+    # Request new bingo board
+    generated_request = TicketRequest(
+        user_id=1, category=BingoCategory.USBINGO
+    )
+    # Read response
+    generated_response = generated_client.Tickets(
+        generated_request
+    )
+
+    cards = []
+    for loop in generated_response.generated:
+        cards.append(loop.title)
+
+    print(cards[0][0])
+    return render_template( "usa.html", myboard=cards)

@@ -10,7 +10,6 @@ enum BingoCategory {
 message TicketRequest {
     int32 user_id = 1;
     BingoCategory category = 2;
-    int32 max_results = 3;
 }
 
 message BingoTicket {

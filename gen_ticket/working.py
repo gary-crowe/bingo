@@ -65,7 +65,7 @@ def generate_cards(seed_value):
     return(np.array2string(result, separator=','))
 
 seed = int(time.time())
-
 cards = generate_cards(seed)
+
 print(cards)
 

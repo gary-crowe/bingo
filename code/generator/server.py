@@ -1,6 +1,6 @@
 # generated/generated.py
 from concurrent import futures
-import random
+from random import Random
 import numpy as np
 import numpy.random as r
 import time
@@ -25,15 +25,38 @@ tbl11 = [0,1,2,2,2,2,2,2,2]
 start = [1,10,20,30,40,50,60,70,80]
 end   = [9,19,29,39,49,59,69,79,90]
 
-# #######################
-# Generate the bingo card
-# #######################
+# ######################## #
+# Generate the bingo cards #
+# ######################## #
 
-# TODO: Add function to generate USA, Words & Pictures player card
+# genUSA : Generates 5x5 grid , numbers 1 thru 75
+def genUSA():
+    x = Random()
+    result = []
+    result.append(x.sample(range(1, 16), 5))
+    result.append(x.sample(range(16, 31), 5))
+    s = x.sample(range(31, 46), 4)
+    result.append([s[0], s[1], None, s[2], s[3]])
+    result.append(x.sample(range(46, 61), 5))
+    result.append(x.sample(range(61, 76), 5))
+    return( result )
+
+# genIMAGES : Generates 5x5 grid , numbers 1 thru 90
+def genIMAGES():
+    x = Random()
+    result = []
+    result.append(x.sample(range(1, 20), 5))
+    result.append(x.sample(range(20, 40), 5))
+    s = x.sample(range(40, 60), 4)
+    result.append([s[0], s[1], 0, s[2], s[3]])
+    result.append(x.sample(range(60, 80), 5))
+    result.append(x.sample(range(80, 90), 5))
+    return( result )
 
 ## ############################################### ##
 ## Generate 6 English Bingo tickets using NP array ##
 ## ############################################### ##
+
 def generate_cards(seed_value):
     r.seed(seed_value)
     amounts = np.empty((6,9), dtype=int)
@@ -84,15 +107,6 @@ def generate_cards(seed_value):
             assert iter < 50
     return(np.array2string(result, separator=','))
 
-#def genUK():
-#    ticket =np.full(27,1).reshape(9,3)
-#    ticket[:4,:] *=0
-#    [np.random.shuffle(ticket[:,i]) for i in range(3)]
-#    for i in range(9):
-#        nums =np.arange(1+10*i,11+10*i)
-#        np.random.shuffle(nums)
-#        ticket[i,:] *= np.sort(nums[:3])
-#    return(np.array2string(ticket.T, separator=','))
 
 ## ######################### ##
 ## Ticket service definition ##
@@ -100,24 +114,23 @@ def generate_cards(seed_value):
 
 class TicketsationService(generated_pb2_grpc.GeneratedServicer):
     def Tickets(self, request, context):
-        # Add logic here for Pictures and words bingo
+
         tickets_by_category = {
             BingoCategory.UKBINGO: [
                 BingoTicket(id=1, title=str(generate_cards(int(time.time())))),
             ],
             BingoCategory.USBINGO: [
-                BingoTicket(id=1, title=str(generate_cards(int(time.time())))),
+                BingoTicket(id=1, title=str(genUSA())),    # grid 5 x 5 (num=1 thru 75)
+            ],
+            BingoCategory.IMAGES: [
+                BingoTicket(id=1, title=str(genIMAGES())), # grid 5 x 5 (num=1 thru 90)
+            ],
+            BingoCategory.WORDS: [
+                BingoTicket(id=1, title=str(genUSA())),
             ],
         }
 
-#       tickets_for_category = tickets_by_category[request.category]
-        tickets_for_category = tickets_by_category[BingoCategory.UKBINGO]
-        num_results = min(request.max_results, len(tickets_for_category))
-        players_tickets = random.sample(
-            tickets_for_category, num_results
-        )
-
-        return BingoTicketResponse(generated=players_tickets)
+        return BingoTicketResponse(generated=tickets_by_category[request.category])
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
