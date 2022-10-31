@@ -33,13 +33,19 @@ end   = [9,19,29,39,49,59,69,79,90]
 def genUSA():
     x = Random()
     result = []
+    flatList = []
+
     result.append(x.sample(range(1, 16), 5))
     result.append(x.sample(range(16, 31), 5))
     s = x.sample(range(31, 46), 4)
-    result.append([s[0], s[1], None, s[2], s[3]])
+    result.append([s[0], s[1], 0, s[2], s[3]])
     result.append(x.sample(range(46, 61), 5))
     result.append(x.sample(range(61, 76), 5))
-    return( result )
+
+    for elem in result:
+        flatList.extend(elem)
+
+    return (flatList)
 
 # genIMAGES : Generates 5x5 grid , numbers 1 thru 90
 def genIMAGES():

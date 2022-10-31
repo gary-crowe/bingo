@@ -28,6 +28,9 @@ generated_client = GeneratedStub(generated_channel)
 def flatten(l):
     return [item for sublist in l for item in sublist]
 
+# ################# #
+# Main landing page
+# ################# #
 @app.route("/")
 def render_homepage():
     # Request new bingo board
@@ -45,7 +48,8 @@ def render_homepage():
 
     # Flatten to list of all numbers
     board=sum(flatten(cards), [])
-
+    print (board)
+    print (list(itertools.chain.from_iterable(board)))
     return render_template( "homepage.html", myboard=list(itertools.chain.from_iterable(board)))
 
 @app.route("/usa")
@@ -63,5 +67,4 @@ def render_usabingo():
     for loop in generated_response.generated:
         cards.append(loop.title)
 
-    print(cards[0][0])
     return render_template( "usa.html", myboard=cards)

@@ -1,7 +1,7 @@
 <!-- homepage.html -->
 <!doctype html>
-{% macro testmacro(board) -%}
-{% for i in board %}
+{% macro testmacro(start,board) -%}
+{% for i in range(start,start+5) %}
   {% if board[i] == 0 %}
   <td>&nbsp;&nbsp;</td>
   {% else %}
@@ -17,10 +17,10 @@
 <body>
     <h2>Your bingo tickets:</h2>
        <table border="1" style="width:60%;text-align:center;background-color:gold;">
-       <tr>{{ testmacro(myboard[0]) }}</tr>
-       <tr>{{ testmacro(myboard[1]) }}</tr>
-       <tr>{{ testmacro(myboard[2]) }}</tr>
-       <tr>{{ testmacro(myboard[3]) }}</tr>
-       <tr>{{ testmacro(myboard[4]) }}</tr>
+       <tr>{{ testmacro(0,myboard) }}</tr>
+       <tr>{{ testmacro(5,myboard) }}</tr>
+       <tr>{{ testmacro(10,myboard) }}</tr>
+       <tr>{{ testmacro(15,myboard) }}</tr>
+       <tr>{{ testmacro(20,myboard) }}</tr>
       </table>
 </body>
