@@ -1,6 +1,6 @@
 # generated/generated.py
 from concurrent import futures
-from random import Random
+import random
 import numpy as np
 import numpy.random as r
 import time
@@ -30,34 +30,28 @@ end   = [9,19,29,39,49,59,69,79,90]
 # ######################## #
 
 # genUSA : Generates 5x5 grid , numbers 1 thru 75
+
 def genUSA():
-    x = Random()
-    result = []
-    flatList = []
 
-    result.append(x.sample(range(1, 16), 5))
-    result.append(x.sample(range(16, 31), 5))
-    s = x.sample(range(31, 46), 4)
-    result.append([s[0], s[1], 0, s[2], s[3]])
-    result.append(x.sample(range(46, 61), 5))
-    result.append(x.sample(range(61, 76), 5))
+    line1=(random.sample(range(1,16),5))
+    line2=(random.sample(range(16,31),5))
+    line3=(random.sample(range(31,46),5))
+    line4=(random.sample(range(46,61),5))
+    line5=(random.sample(range(61,76),5))
 
-    for elem in result:
-        flatList.extend(elem)
-
-    return (flatList)
+    card=np.stack((line1,line2,line3,line4,line5),axis=-1)
+    return (np.array2string(card, separator=','))
 
 # genIMAGES : Generates 5x5 grid , numbers 1 thru 90
 def genIMAGES():
-    x = Random()
-    result = []
-    result.append(x.sample(range(1, 20), 5))
-    result.append(x.sample(range(20, 40), 5))
-    s = x.sample(range(40, 60), 4)
-    result.append([s[0], s[1], 0, s[2], s[3]])
-    result.append(x.sample(range(60, 80), 5))
-    result.append(x.sample(range(80, 90), 5))
-    return( result )
+    line1=(random.sample(range(1,18),5))
+    line2=(random.sample(range(18,36),5))
+    line3=(random.sample(range(36,54),5))
+    line4=(random.sample(range(54,72),5))
+    line5=(random.sample(range(72,90),5))
+
+    card=np.stack((line1,line2,line3,line4,line5),axis=-1)
+    return (np.array2string(card, separator=','))
 
 ## ############################################### ##
 ## Generate 6 English Bingo tickets using NP array ##
