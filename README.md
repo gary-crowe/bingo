@@ -16,7 +16,7 @@ The communication messaging between nodes will use Googles RPC (see: https://grp
 and is based on this as a starting point: https://realpython.com/python-microservices-grpc/
 
 # Bingo card generation
-The bingo card generation is tricky. we will be using a standard English bingo card (for now) that has the following constraints:
+The bingo card generation for a standard UK card that has the following constraints:
 
 - Each ticket has 3 rows with 9 cells each.
 - Each ticket contains 15 numbers.
@@ -27,27 +27,25 @@ The bingo card generation is tricky. we will be using a standard English bingo c
 - No ticket should have empty column / columns
 - The numbers in every column must be sorted ascending.
 
-A typical card looks like this:
+The bingo card for images & USA has the following constraints.
+- Each ticket has 5 rows with 5 cells each.
+- Each ticket contains 24 numbers.
+- The center number if free and not used.
+- You may call a line, all 4 corners or a full house.
+- Each number should only appear once per tickets
 
-![Home System](img/card.jpg)
+The generator code utilises NP arrays but gPRC will return as a string.
 
-the gen_ticket/final.py code achieves the bingo ticket as an NP array.
 ### Links for bingo card generation
 
-Bingo card generator (pay): https://myfreebingocards.com/bingo-card-generator/edit/y6gbar
 https://github.com/delins/bingo : generates pdf 5x5 bingo card. Might be useful to print out cards. 
 https://github.com/digitalsleuth/bingo-card-generator: Similar, looks to have a gui frontend.
 
 API interface? : https://partystuff.in/tickets-api
-Working JS with code: https://codepen.io/rahtiel/pen/jOEZmjP
-
-Some theory here using conjure programming language: https://journal.artfuldev.com/generating-tickets-for-tambola-or-bingo-or-housie-or-whatever-58df409205ae
 
 Automated number caller page: https://www.online-stopwatch.com/random-number-generators/online-bingo-caller/
 and this one: https://partystuff.in/tambola-board
 
-Here's a solution but in js I think: ```https://praveenpuglia.com/tambola-tickets```
-This look sinteresting: https://github.com/ishitajain21/Housie.git
 There is a pre-defined python library for housie: https://pypi.org/project/housie/
 
 ###

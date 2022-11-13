@@ -1,0 +1,26 @@
+<!-- homepage.html -->
+<!doctype html>
+{% macro testmacro(start,board) -%}
+{% for i in range(start,start+5) %}
+  {% if board[i] == 0 %}
+  <td>&nbsp;&nbsp;</td>
+  {% else %}
+  <td>{{ board[i] }}</td>
+  {% endif %}
+{% endfor %}
+{%- endmacro %}
+
+<html lang="en">
+<head>
+    <title>Garys Bingo Game</title>
+</head>
+<body>
+    <h2>Your bingo tickets:</h2>
+       <table border="1" style="width:60%;text-align:center;background-color:gold;">
+       <tr>{{ testmacro(0,myboard) }}</tr>
+       <tr>{{ testmacro(5,myboard) }}</tr>
+       <tr>{{ testmacro(10,myboard) }}</tr>
+       <tr>{{ testmacro(15,myboard) }}</tr>
+       <tr>{{ testmacro(20,myboard) }}</tr>
+      </table>
+</body>

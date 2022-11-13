@@ -1,18 +1,7 @@
-# generated/generated.py
-from concurrent import futures
-import random
+
 import numpy as np
 import numpy.random as r
 import time
-import grpc
-import tabulate
-
-from generated_pb2 import (
-    BingoCategory,
-    BingoTicket,
-    BingoTicketResponse,
-)
-import generated_pb2_grpc
 
 part9  = np.array([[3,2,1,1,1,1], [2,2,2,1,1,1]])
 part10 = np.array([[3,3,1,1,1,1], [3,2,2,1,1,1], [2,2,2,2,1,1]])
@@ -24,38 +13,6 @@ tbl11 = [0,1,2,2,2,2,2,2,2]
 
 start = [1,10,20,30,40,50,60,70,80]
 end   = [9,19,29,39,49,59,69,79,90]
-
-# ######################## #
-# Generate the bingo cards #
-# ######################## #
-
-# genUSA : Generates 5x5 grid , numbers 1 thru 75
-
-def genUSA():
-
-    line1=(random.sample(range(1,16),5))
-    line2=(random.sample(range(16,31),5))
-    line3=(random.sample(range(31,46),5))
-    line4=(random.sample(range(46,61),5))
-    line5=(random.sample(range(61,76),5))
-
-    card=np.stack((line1,line2,line3,line4,line5),axis=-1)
-    return (np.array2string(card, separator=','))
-
-# genIMAGES : Generates 5x5 grid , numbers 1 thru 90
-def genIMAGES():
-    line1=(random.sample(range(1,18),5))
-    line2=(random.sample(range(18,36),5))
-    line3=(random.sample(range(36,54),5))
-    line4=(random.sample(range(54,72),5))
-    line5=(random.sample(range(72,90),5))
-
-    card=np.stack((line1,line2,line3,line4,line5),axis=-1)
-    return (np.array2string(card, separator=','))
-
-## ############################################### ##
-## Generate 6 English Bingo tickets using NP array ##
-## ############################################### ##
 
 def generate_cards(seed_value):
     r.seed(seed_value)
@@ -107,40 +64,8 @@ def generate_cards(seed_value):
             assert iter < 50
     return(np.array2string(result, separator=','))
 
+seed = int(time.time())
+cards = generate_cards(seed)
 
-## ######################### ##
-## Ticket service definition ##
-## ######################### ##
+print(cards)
 
-class TicketsationService(generated_pb2_grpc.GeneratedServicer):
-    def Tickets(self, request, context):
-
-        tickets_by_category = {
-            BingoCategory.UKBINGO: [
-                BingoTicket(id=1, title=str(generate_cards(int(time.time())))),
-            ],
-            BingoCategory.USBINGO: [
-                BingoTicket(id=1, title=str(genUSA())),    # grid 5 x 5 (num=1 thru 75)
-            ],
-            BingoCategory.IMAGES: [
-                BingoTicket(id=1, title=str(genIMAGES())), # grid 5 x 5 (num=1 thru 90)
-            ],
-            BingoCategory.WORDS: [
-                BingoTicket(id=1, title=str(genUSA())),
-            ],
-        }
-
-        return BingoTicketResponse(generated=tickets_by_category[request.category])
-
-def serve():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    generated_pb2_grpc.add_GeneratedServicer_to_server(
-        TicketsationService(), server
-    )
-    server.add_insecure_port("[::]:50051")
-    server.start()
-    server.wait_for_termination()
-
-
-if __name__ == "__main__":
-    serve()
