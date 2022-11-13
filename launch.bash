@@ -8,7 +8,7 @@ oc new-app https://github.com/gary-crowe/bingo#latest \
 # Client App
 oc new-app https://github.com/gary-crowe/bingo#latest \
 	--context-dir=code/client \
-	--env RECOMMENDATIONS_HOST=bingo-generator \
+	--env GENERATOR_HOST=bingo-generator \
 	--name bingo
 
 # MySQL database backend

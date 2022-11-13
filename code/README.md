@@ -43,11 +43,6 @@ oc new-app mysql:8.0~https://github.com/gary-crowe/bingo \
 ```
 
 ## To fix.
-1. The numpy command doesn't return 6 bingo tickets that follow the rules for bingo tickets.  
-This routine needs to be changed to generate 6, English style bing tickets.
-
-2. Not sure a flattened array is the right idea for the ticket storage.
-How will I check and mark off the tickets?
-
-3. Instructions for firing up mysql as a container.
-
+1. Instructions for firing up mysql as a container.
+2. It appears that gRPC doesn't work? out of the box.
+See: https://cloud.redhat.com/blog/grpc-or-http/2-ingress-connectivity-in-openshift
