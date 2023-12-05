@@ -1,5 +1,5 @@
 #FROM registry.fedoraproject.org/f33/python3
-FROM registry.redhat.io/ubi8/python-36
+FROM registry.redhat.io/ubi8/python-38
 
 LABEL description="Bingo Ticket Client" \
       version="0.2" \
