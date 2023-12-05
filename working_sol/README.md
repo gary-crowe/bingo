@@ -16,11 +16,8 @@ The client flask program sends a request message to the ticket generator program
 tickets (3x9).  These are passed back to the client as an object.  The object is parsed and converted to a flattened list of all the balls.  The flask app then prints them in tables to represent the bingo tickets.
 
 ## To fix.
-1. The numpy command doesn't return 6 bingo tickets that follow the rules for bingo tickets.  
-This routine needs to be changed to generate 6, English style bing tickets.
-
-2. Not sure a flattened array is the right idea for the ticket storage.
+1. Not sure a flattened array is the right idea for the ticket storage.
 How will I check and mark off the tickets?
 
-3. Instructions for firing up mysql as a container.
+2. Instructions for firing up mysql as a container.
 
