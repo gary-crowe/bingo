@@ -1,5 +1,5 @@
 gunicorn
-flask>=2.2.5
+flask
 grpcio-tools
 Jinja2
 pytest
